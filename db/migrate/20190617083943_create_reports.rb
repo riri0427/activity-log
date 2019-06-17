@@ -7,7 +7,6 @@ class CreateReports < ActiveRecord::Migration[5.2]
       t.string      :image
       t.text        :comment
       t.references  :user,         foreign_key: true
-      t.references  :activity,     foreign_key: true
       t.timestamps
     end
   end
