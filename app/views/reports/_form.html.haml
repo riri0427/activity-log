@@ -1,0 +1,40 @@
+.container.d-none.d-xl-block{style: 'margin-left: 400px; max-width: 800px;'}
+  %form.mt-3
+    .form-group
+      %label{for: "exampleFormControlInput1"} タイトル
+      %input#exampleFormControlInput1.form-control{placeholder: "タイトル", type: "email"}/
+    .form-group
+      作業時間
+      .form-row
+        .col
+          %input.form-control{placeholder: "時間", type: "text"}
+        .col
+          %input.form-control{placeholder: "分", type: "text"}/
+    .form-group
+      画像（1枚のみ）
+      .custom-file
+        %input#customFile.custom-file-input{:type => "file"}/
+        %label.custom-file-label{:for => "customFile"} ファイルを選んでください
+    .form-group
+      %label{for: "exampleFormControlTextarea1"} コメント
+      %textarea#exampleFormControlTextarea1.form-control{rows: "3"}
+.container.d-xl-none
+  %form.mt-3
+    .form-group
+      %label{for: "exampleFormControlInput1"} タイトル
+      %input#exampleFormControlInput1.form-control{placeholder: "タイトル", type: "email"}/
+    .form-group
+      作業時間
+      .form-row
+        .col
+          %input.form-control{placeholder: "時間", type: "text"}
+        .col
+          %input.form-control{placeholder: "分", type: "text"}/
+    .form-group
+      画像（1枚のみ）
+      .custom-file
+        %input#customFile.custom-file-input{:type => "file"}/
+        %label.custom-file-label{:for => "customFile"} ファイルを選んでください
+    .form-group
+      %label{for: "exampleFormControlTextarea1"} コメント
+      %textarea#exampleFormControlTextarea1.form-control{rows: "3"}
