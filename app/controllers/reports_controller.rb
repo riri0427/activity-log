@@ -6,5 +6,12 @@ class ReportsController < ApplicationController
   end
 
   def create
+    @report = Report.create(report_params)
+  end
+
+  private
+  
+  def report_params
+    params.permit(:title, :spend_hour, :spend_minute, :image, :comment)
   end
 end
