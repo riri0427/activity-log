@@ -12,6 +12,6 @@ class ReportsController < ApplicationController
   private
   
   def report_params
-    params.permit(:title, :spend_hour, :spend_minute, :image, :comment)
+    params.permit(:title, :spend_hour, :spend_minute, :comment, :images)
   end
 end
