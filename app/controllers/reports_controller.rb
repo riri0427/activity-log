@@ -7,6 +7,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.create(report_params)
+    redirect_to action: :index
   end
 
   private
