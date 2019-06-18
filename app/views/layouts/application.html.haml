@@ -18,7 +18,7 @@
         #navbarNav.collapse.navbar-collapse
           %ul.navbar-nav.d-xl-none
             %li.nav-item
-              %a.nav-link{href: "#"}
+              = link_to new_report_path, class: 'nav-link' do
                 %i.fa.fa-edit レポートを書く
             %li.nav-item
               %a.nav-link{href: "#"}
@@ -41,7 +41,7 @@
       .col-lg-2.side_nav.border-right.d-none.d-xl-block.h-100.position-fixed
         %ul.nav.flex-column.d-none.d-xl-block
           %li.nav-item.mt-3
-            %a.nav-link.text-secondary.active{:href => "#"}
+            = link_to new_report_path, class: 'text-secondary nav-link' do
               %i.fa.fa-edit レポートを書く
           %li.nav-item.mt-3
             %a.text-secondary.nav-link{:href => "#"}
@@ -69,5 +69,5 @@
               %a.nav-link{href: "#"}
                 %i.fas.fa-user
             %li.nav-item.mx-4
-              %a.nav-link{href: "#"}
+              = link_to new_report_path, class: 'nav-link' do
                 %i.fa.fa-edit
