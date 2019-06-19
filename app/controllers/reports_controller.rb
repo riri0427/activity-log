@@ -20,7 +20,10 @@ class ReportsController < ApplicationController
   end
 
   def update
-
+    report = Report.find(params[:id])
+    if current_user.id == report.user.id
+      report.update(report_params)
+    end
   end
 
   private
