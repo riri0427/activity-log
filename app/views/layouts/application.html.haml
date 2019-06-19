@@ -11,7 +11,7 @@
   %body
   .container-fluid
     .row
-      %nav.col.navbar.fixed-top.navbar-expand-xl.navbar-light{:style => "background-color: #e3f2fd;"}
+      %nav.col.navbar.fixed-top.navbar-expand-xl.navbar-light{style: "background-color: #e3f2fd;"}
         %a.navbar-brand{href: "#"} Activity Log
         %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
           %span.navbar-toggler-icon
@@ -38,7 +38,7 @@
               %li.nav-item
                 = link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link'
     .row.main-part-container.d-flex.p-2.vh-100.mt-5
-      .col-lg-2.side_nav.border-right.d-none.d-xl-block.h-100.position-fixed
+      .col-xl-2.side_nav.border-right.d-none.d-xl-block.h-100.position-fixed.mt-3
         %ul.nav.flex-column.d-none.d-xl-block
           %li.nav-item.mt-3
             %a.text-secondary.nav-link{:href => "#"}
@@ -61,7 +61,7 @@
             %li.nav-item.mt-3
               = link_to 'ユーザー登録', new_user_registration_path, class: 'text-secondary nav-link'
       = yield
-      %nav.navbar.navbar-expand.d-xl-none.fixed-bottom.navbar-light{:style => "background-color: #e3f2fd;"}
+      %nav.navbar.navbar-expand.d-xl-none.fixed-bottom.navbar-light{style: "background-color: #e3f2fd;"}
         %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", type: "button"}
           %span.navbar-toggler-icon
         #navbarNav.collapse.navbar-collapse
