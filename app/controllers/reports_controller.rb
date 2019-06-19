@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
   end
 
   def edit
+    @report = Report.find(params[:id])
   end
 
   private
