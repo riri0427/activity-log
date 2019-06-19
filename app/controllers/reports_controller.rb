@@ -3,6 +3,10 @@ class ReportsController < ApplicationController
     @reports = Report.includes(:user).order("created_at DESC")
   end
 
+  def show
+    @report = Report.find(params[:id])
+  end
+
   def new
   end
 
