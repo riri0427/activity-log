@@ -19,6 +19,10 @@ class ReportsController < ApplicationController
     @report = Report.find(params[:id])
   end
 
+  def update
+
+  end
+
   private
   
   def report_params
