@@ -11,6 +11,9 @@ class ReportsController < ApplicationController
     redirect_to action: :index
   end
 
+  def edit
+  end
+
   private
   
   def report_params
