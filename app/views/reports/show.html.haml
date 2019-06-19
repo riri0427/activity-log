@@ -1,0 +1,30 @@
+.container.d-none.d-xl-block.mt-4{style: 'margin-left: 400px; max-width: 800px;'}
+  .card
+    .card-body
+      %h5.card-title= @report.title
+      %p.card-text
+        %small 作業時間
+      %p.card-text= "#{@report.spend_hour}時間#{@report.spend_minute}分"
+    - if @report.images.present?
+      - @report.images.each do |image|
+        = image_tag image, class: 'card-img-top', alt: 'image'
+    .card-body
+      = simple_format @report.comment, class: 'card-text'
+      - if user_signed_in? && current_user.id == @report.user.id
+        = link_to '編集', edit_report_path(@report), class: 'btn btn-info'
+        %button.btn.btn-info{type: "button"} 削除
+.container.d-xl-none.mt-4
+  .card
+    .card-body
+      %h5.card-title= @report.title
+      %p.card-text
+        %small 作業時間
+      %p.card-text= "#{@report.spend_hour}時間#{@report.spend_minute}分"
+    - if @report.images.present?
+      - @report.images.each do |image|
+        = image_tag image, class: 'card-img-top', alt: 'image'
+    .card-body
+      = simple_format @report.comment, class: 'card-text'
+      - if user_signed_in? && current_user.id == @report.user.id
+        = link_to '編集', edit_report_path(@report), class: 'btn btn-info'
+        %button.btn.btn-info{type: "button"} 削除
