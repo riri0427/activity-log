@@ -1,4 +1,8 @@
 .col-xl-9.d-none.d-xl-block.reports-xl.pt-3.pl-3{style: "margin-left: 250px;"}
-  = render partial: "reports"
-.col-xl-9.d-xl-none.reports-xl.pt-3.pl-3
-  = render partial: "reports"
+  .container
+    .row
+      = render @reports
+.col-xl-9.d-xl-none.reports-xl.pt-3.pl-3{style: "height: calc(100vh - 18%); overflow: scroll;"}
+  .container
+    .row
+      = render @reports
