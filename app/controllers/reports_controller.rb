@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   def index
+    @report = Report.includes(:user).order("created_at DESC")
   end
 
   def new
