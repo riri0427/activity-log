@@ -37,12 +37,6 @@
                 = link_to 'ログイン', new_user_session_path, class: 'nav-link'
               %li.nav-item
                 = link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link'
-            %li.nav-item.d-none.d-lg-block.d-xl-none
-              %a.nav-link{href: "#"} Home
-            %li.nav-item.d-none.d-lg-block.d-xl-none
-              %a.nav-link{href: "#"} Home
-            %li.nav-item.d-none.d-lg-block.d-xl-none
-              %a.nav-link{href: "#"} Home
     .row.main-part-container.d-flex.p-2.vh-100.mt-5
       .col-lg-2.side_nav.border-right.d-none.d-xl-block.h-100.position-fixed
         %ul.nav.flex-column.d-none.d-xl-block
@@ -66,8 +60,6 @@
               = link_to 'ログイン', new_user_session_path, class: 'text-secondary nav-link'
             %li.nav-item.mt-3
               = link_to 'ユーザー登録', new_user_registration_path, class: 'text-secondary nav-link'
-          %li.nav-item.mt-3
-            %a.text-secondary.nav-link{:href => "#"} Link
       = yield
       %nav.navbar.navbar-expand.d-xl-none.fixed-bottom.navbar-light{:style => "background-color: #e3f2fd;"}
         %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", type: "button"}
