@@ -23,7 +23,7 @@
       = f.button :Send, class: 'btn btn-info'
 .container.d-xl-none{style: "height: calc(100vh - 18%); overflow: scroll;"}
   %h3.mt-4 編集
-  = form_with(model: @report, url: '/reports', class: 'mt-3', local: true) do |f|
+  = form_with(model: @report, url: "/reports/#{@report.id}", class: 'mt-3', local: true) do |f|
     .form-group
       = f.label 'タイトル', for: 'exampleFormControlInput1'
       = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル', value: "#{}"
