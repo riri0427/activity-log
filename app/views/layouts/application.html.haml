@@ -29,8 +29,14 @@
             %li.nav-item
               %a.nav-link{href: "#"}
                 %i.fas.fa-home ホーム
-            %li.nav-item
-              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+            - if user_signed_in?
+              %li.nav-item
+                = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+            - else
+              %li.nav-item
+                = link_to 'ログイン', new_user_session_path, class: 'nav-link'
+              %li.nav-item
+                = link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link'
             %li.nav-item.d-none.d-lg-block.d-xl-none
               %a.nav-link{href: "#"} Home
             %li.nav-item.d-none.d-lg-block.d-xl-none
@@ -52,8 +58,14 @@
           %li.nav-item.mt-3
             %a.text-secondary.nav-link{:href => "#"}
               %i.fas.fa-home ホーム
-          %li.nav-item.mt-3
-            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-secondary nav-link'
+          - if user_signed_in?
+            %li.nav-item.mt-3
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-secondary nav-link'
+          - else
+            %li.nav-item.mt-3
+              = link_to 'ログイン', new_user_session_path, class: 'text-secondary nav-link'
+            %li.nav-item.mt-3
+              = link_to 'ユーザー登録', new_user_registration_path, class: 'text-secondary nav-link'
           %li.nav-item.mt-3
             %a.text-secondary.nav-link{:href => "#"} Link
       = yield
