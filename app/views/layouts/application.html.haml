@@ -18,18 +18,18 @@
         #navbarNav.collapse.navbar-collapse
           %ul.navbar-nav.d-xl-none
             %li.nav-item
-              = link_to new_report_path, class: 'nav-link' do
-                %i.fa.fa-edit レポートを書く
-            %li.nav-item
-              %a.nav-link{href: "#"}
-                %i.fas.fa-user マイページ
-            %li.nav-item
-              %a.nav-link{href: "#"}
-                %i.fas.fa-user-cog アカウント設定
-            %li.nav-item
               %a.nav-link{href: "#"}
                 %i.fas.fa-home ホーム
             - if user_signed_in?
+              %li.nav-item
+                = link_to new_report_path, class: 'nav-link' do
+                  %i.fa.fa-edit レポートを書く
+              %li.nav-item
+                %a.nav-link{href: "#"}
+                  %i.fas.fa-user マイページ
+              %li.nav-item
+                %a.nav-link{href: "#"}
+                  %i.fas.fa-user-cog アカウント設定
               %li.nav-item
                 = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
             - else
@@ -47,18 +47,18 @@
       .col-lg-2.side_nav.border-right.d-none.d-xl-block.h-100.position-fixed
         %ul.nav.flex-column.d-none.d-xl-block
           %li.nav-item.mt-3
-            = link_to new_report_path, class: 'text-secondary nav-link' do
-              %i.fa.fa-edit レポートを書く
-          %li.nav-item.mt-3
-            %a.text-secondary.nav-link{:href => "#"}
-              %i.fas.fa-user マイページ
-          %li.nav-item.mt-3
-            %a.text-secondary.nav-link{:href => "#"}
-              %i.fas.fa-user-cog アカウント設定
-          %li.nav-item.mt-3
             %a.text-secondary.nav-link{:href => "#"}
               %i.fas.fa-home ホーム
           - if user_signed_in?
+            %li.nav-item.mt-3
+              = link_to new_report_path, class: 'text-secondary nav-link' do
+                %i.fa.fa-edit レポートを書く
+            %li.nav-item.mt-3
+              %a.text-secondary.nav-link{:href => "#"}
+                %i.fas.fa-user マイページ
+            %li.nav-item.mt-3
+              %a.text-secondary.nav-link{:href => "#"}
+                %i.fas.fa-user-cog アカウント設定
             %li.nav-item.mt-3
               = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-secondary nav-link'
           - else
@@ -77,9 +77,10 @@
             %li.nav-item.mx-4
               %a.nav-link{href: "#"}
                 %i.fas.fa-home
-            %li.nav-item.mx-4
-              %a.nav-link{href: "#"}
-                %i.fas.fa-user
-            %li.nav-item.mx-4
-              = link_to new_report_path, class: 'nav-link' do
-                %i.fa.fa-edit
+            - if user_signed_in?
+              %li.nav-item.mx-4
+                %a.nav-link{href: "#"}
+                  %i.fas.fa-user
+              %li.nav-item.mx-4
+                = link_to new_report_path, class: 'nav-link' do
+                  %i.fa.fa-edit
