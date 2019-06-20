@@ -12,13 +12,13 @@
   .container-fluid
     .row
       %nav.col.navbar.fixed-top.navbar-expand-xl.navbar-light{style: "background-color: #e3f2fd;"}
-        %a.navbar-brand{href: "#"} Activity Log
+        = link_to 'Activity Log', root_path, class: 'navbar-brand'
         %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
           %span.navbar-toggler-icon
         #navbarNav.collapse.navbar-collapse
           %ul.navbar-nav.d-xl-none
             %li.nav-item
-              %a.nav-link{href: "#"}
+              = link_to root_path, class: 'nav-link' do
                 %i.fas.fa-home ホーム
             - if user_signed_in?
               %li.nav-item
@@ -41,7 +41,7 @@
       .col-xl-2.side_nav.border-right.d-none.d-xl-block.h-100.position-fixed.mt-3
         %ul.nav.flex-column.d-none.d-xl-block
           %li.nav-item.mt-3
-            %a.text-secondary.nav-link{:href => "#"}
+            = link_to root_path, class: 'text-secondary nav-link' do
               %i.fas.fa-home ホーム
           - if user_signed_in?
             %li.nav-item.mt-3
@@ -67,7 +67,7 @@
         #navbarNav.collapse.navbar-collapse
           %ul.navbar-nav
             %li.nav-item.mx-4
-              %a.nav-link{href: "#"}
+              = link_to root_path, class: 'nav-link' do
                 %i.fas.fa-home
             - if user_signed_in?
               %li.nav-item.mx-4
