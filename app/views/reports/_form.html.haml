@@ -4,12 +4,16 @@
       = f.label 'タイトル', for: 'exampleFormControlInput1'
       = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル'
     .form-group
-      作業時間
+      作業時間(半角で入力してください)
       .form-row
-        .col
-          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間'
-        .col
+        .col.d-flex
+          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間', value: '0'
+          .form-name.mt-2.ml-1
+            時間
+        .col.d-flex
           = f.number_field :spend_minute, class: 'form-control', placeholder: '分'
+          .form-name.mt-2.ml-1
+            分
     .form-group
       画像（複数選択可）
       .custom-file
@@ -26,12 +30,16 @@
       = f.label 'タイトル', for: 'exampleFormControlInput1'
       = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル'
     .form-group
-      作業時間
+      作業時間(半角で入力してください)
       .form-row
-        .col
-          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間'
-        .col
+        .col.d-flex
+          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間', value: '0'
+          .form-name.mt-2.ml-1
+            時間
+        .col.d-flex
           = f.number_field :spend_minute, class: 'form-control', placeholder: '分'
+          .form-name.mt-2.ml-1
+            分
     .form-group
       画像（複数選択可）
       .custom-file
