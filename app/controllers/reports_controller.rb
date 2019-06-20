@@ -11,7 +11,7 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = Report.create(report_params)
+    @report = Report.create(report_params_create)
     redirect_to action: :index
   end
 
@@ -29,8 +29,8 @@ class ReportsController < ApplicationController
 
   private
   
-  def report_params
-    params.permit(:title, :spend_hour, :spend_minute, :comment, { :images => [] })
+  def report_params_create
+    params.permit(:title, :spend_hour, :spend_minute, :comment, { :images => [] }).merge(user_id: current_user.id)
   end
 
   def report_params_update
