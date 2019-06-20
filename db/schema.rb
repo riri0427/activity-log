@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_015038) do
 
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "spend_hour"
+    t.integer "spend_hour", default: 0
     t.integer "spend_minute", null: false
     t.text "comment"
     t.datetime "created_at", null: false
