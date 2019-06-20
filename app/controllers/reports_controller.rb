@@ -22,13 +22,18 @@ class ReportsController < ApplicationController
   def update
     report = Report.find(params[:id])
     if current_user.id == report.user.id
-      report.update(report_params)
+      report.update(report_params_update)
     end
+    redirect_to action: :index
   end
 
   private
   
   def report_params
     params.permit(:title, :spend_hour, :spend_minute, :comment, { :images => [] })
+  end
+
+  def report_params_update
+    params.require(:report).permit(:title, :spend_hour, :spend_minute, :comment, { :images => [] })
   end
 end
