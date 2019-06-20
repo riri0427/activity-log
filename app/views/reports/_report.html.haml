@@ -6,16 +6,17 @@
           = image_tag report.images[0], class:'card-img', alt: 'image'
         .col-md-8
           .card-body
-            %h5.card-title
-              = report.user.nickname
+            = link_to user_path(report.user.id) do
+              %h5.card-title
+                = report.user.nickname
             %h6.card-title
               = report.title
-            %p.card-text
             = link_to '詳細', report_path(report), class: 'btn btn-info'
   - else
     .card-body
-      %h5.card-title
-        = report.user.nickname
+      = link_to user_path(report.user.id) do
+        %h5.card-title
+          = report.user.nickname
       %h6.card-title 
         = report.title
       = link_to '詳細', report_path(report), class: 'btn btn-info'
