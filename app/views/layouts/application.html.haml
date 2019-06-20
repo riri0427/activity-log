@@ -25,7 +25,7 @@
                 = link_to new_report_path, class: 'nav-link' do
                   %i.fa.fa-edit レポートを書く
               %li.nav-item
-                %a.nav-link{href: "#"}
+                = link_to user_path(current_user), class: 'nav-link' do
                   %i.fas.fa-user マイページ
               %li.nav-item
                 %a.nav-link{href: "#"}
@@ -48,7 +48,7 @@
               = link_to new_report_path, class: 'text-secondary nav-link' do
                 %i.fa.fa-edit レポートを書く
             %li.nav-item.mt-3
-              %a.text-secondary.nav-link{:href => "#"}
+              = link_to user_path(current_user), class: 'text-secondary nav-link' do
                 %i.fas.fa-user マイページ
             %li.nav-item.mt-3
               %a.text-secondary.nav-link{:href => "#"}
@@ -71,7 +71,7 @@
                 %i.fas.fa-home
             - if user_signed_in?
               %li.nav-item.mx-4
-                %a.nav-link{href: "#"}
+                = link_to user_path(current_user), class: 'nav-link' do
                   %i.fas.fa-user
               %li.nav-item.mx-4
                 = link_to new_report_path, class: 'nav-link' do
