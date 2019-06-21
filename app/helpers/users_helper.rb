@@ -6,7 +6,8 @@ module UsersHelper
     @result_spend_hour = (spend_time_sum / 60).floor
     @result_spend_minute = spend_time_sum % 60
   def return_result_spend_hour(user_reports)
-    
+    spend_time_sum = calculate_spend_time(user_reports)
+    result_spend_hour = (spend_time_sum / 60).floor
   end
   end
 end
