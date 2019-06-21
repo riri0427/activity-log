@@ -11,6 +11,7 @@ module UsersHelper
   end
 
   def return_result_spend_minute(user_reports)
-    
+    spend_time_sum = calculate_spend_time(user_reports)
+    result_spend_minute = spend_time_sum % 60
   end
 end
