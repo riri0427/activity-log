@@ -13,7 +13,7 @@
       - if user_signed_in? && current_user.id == @report.user.id
         = link_to '編集', edit_report_path(@report), class: 'btn btn-info'
         %button.btn.btn-info{type: "button"} 削除
-.container.d-xl-none.mt-4
+.container.d-xl-none.mt-4{style: "height: calc(100vh - 18%); overflow: scroll;"}
   .card
     .card-body
       %h5.card-title= @report.title
