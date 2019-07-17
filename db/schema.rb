@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_024515) do
+ActiveRecord::Schema.define(version: 2019_07_17_025004) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2019_06_20_024515) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_activities_on_name"
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.integer "spend_hour", default: 0, null: false
@@ -41,6 +50,10 @@ ActiveRecord::Schema.define(version: 2019_06_20_024515) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "activity_id_id"
+    t.bigint "activity_id"
+    t.index ["activity_id"], name: "index_reports_on_activity_id"
+    t.index ["activity_id_id"], name: "index_reports_on_activity_id_id"
     t.index ["title"], name: "index_reports_on_title"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
@@ -60,5 +73,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_024515) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "activities", "users"
+  add_foreign_key "reports", "activities"
   add_foreign_key "reports", "users"
 end
