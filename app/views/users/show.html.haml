@@ -1,4 +1,13 @@
-.col-xl-9.d-none.d-xl-block.reports-xl.pt-3.pl-3{style: "margin-left: 250px;"}
+-# pcサイズ
+.col-xl-10.d-none.d-xl-block.reports-xl
+  = render partial: 'user-header', locals: { nickname: @nickname }
+  - if @activities.present?
+    .list-group
+      = link_to '#', class: 'list-group-item list-group-item-action' do
+        .d-flex.w-100.justify-content-between.align-items-center
+          %h5.mb-1= @activities.first.name
+          %small 合計作業時間：3時間0分
+
   .container
     .container.d-flex.justify-content-between
       %h3.mt-2.mb-3= "#{@nickname}さんのページ"
