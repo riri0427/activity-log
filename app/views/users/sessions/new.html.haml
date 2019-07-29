@@ -1,4 +1,4 @@
-.container.mt-4.d-none.d-xl-block{style: 'margin-left: 400px; max-width: 800px;'}
+.col-xl-10.d-none.d-xl-block.sign-in-form
   %h3.mb-4 ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-group
@@ -14,7 +14,7 @@
     .form-group.mt-3
       = f.button 'ログイン', class: 'btn btn-info'
   = render "users/shared/links"
-.container.d-xl-none.mt-4
+.container.d-xl-none.sign-in-form-under-lg
   %h3.mb-4 ログイン
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-group

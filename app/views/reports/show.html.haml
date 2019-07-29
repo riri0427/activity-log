@@ -1,28 +1,50 @@
-.container.d-none.d-xl-block.mt-4{style: 'margin-left: 400px; max-width: 800px;'}
+-# pcサイズ
+.col-xl-10.d-none.d-xl-block.show-report
   .card
     .card-body
-      %h5.card-title= @report.title
+      %h5.card-title.show-report__border= @report.title
       %p.card-text
         %small 作業時間
-      %p.card-text= "#{@report.spend_hour}時間#{@report.spend_minute}分"
-    - if @report.images.present?
-      - @report.images.each do |image|
-        = image_tag image, class: 'card-img-top', alt: 'image'
+      %p.card-text.show-report__border= "#{@report.spend_hour}時間#{@report.spend_minute}分"
+    .row.card-body.show-image-box-xl.show-report__border
+      - if @report.images.present?
+        - @report.images.each do |image|
+          = image_tag image.variant(resize: '120x200^'), class: 'show-image-box-xl__image', alt: 'image'
     .card-body
       = simple_format @report.comment, class: 'card-text'
       - if user_signed_in? && current_user.id == @report.user.id
         = link_to '編集', edit_report_path(@report), class: 'btn btn-info'
         %button.btn.btn-info{type: "button"} 削除
-.container.d-xl-none.mt-4{style: "height: calc(100vh - 18%); overflow: scroll;"}
+
+-# iPad以降
+.d-xl-none.show-report-under-lg
   .card
     .card-body
       %h5.card-title= @report.title
       %p.card-text
         %small 作業時間
       %p.card-text= "#{@report.spend_hour}時間#{@report.spend_minute}分"
-    - if @report.images.present?
-      - @report.images.each do |image|
-        = image_tag image, class: 'card-img-top', alt: 'image'
+
+    // iPad Pro
+    .d-none.d-md-block.d-lg-none
+      .row.card-body.show-image-box-md
+        - if @report.images.present?
+          - @report.images.each do |image|
+            = image_tag image.variant(resize: '120x200^'), class: 'show-image-box-md__image', alt: 'image'
+
+    // iPad
+    .d-none.d-lg-block
+      .row.card-body.show-image-box-md.show-image-box-md--lg
+        - if @report.images.present?
+          - @report.images.each do |image|
+            = image_tag image.variant(resize: '120x200^'), class: 'show-image-box-md__image', alt: 'image'
+
+    // スマホ以下
+    .show-image-box-xs.d-block.d-sm-none
+      - if @report.images.present?
+        - @report.images.each do |image|
+          = image_tag image, class: 'card-img-top show-xs-image', alt: 'image'
+
     .card-body
       = simple_format @report.comment, class: 'card-text'
       - if user_signed_in? && current_user.id == @report.user.id

@@ -9,9 +9,15 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-  .container-fluid
+  .container-fluid.vh-100
     .row
-      %nav.col.navbar.fixed-top.navbar-expand-xl.navbar-light{style: "background-color: #e3f2fd;"}
+
+      -# pcサイズ header
+      %nav.col.navbar.navbar-expand-xl.navbar-light.d-none.d-xl-block{style: "background-color: #e3f2fd;"}
+        = link_to 'Activity Log', root_path, class: 'navbar-brand'
+
+      -# iPad以降 header
+      %nav.col.navbar.fixed-top.navbar-light.d-xl-none{style: "background-color: #e3f2fd;"}
         = link_to 'Activity Log', root_path, class: 'navbar-brand'
         %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
           %span.navbar-toggler-icon
@@ -31,14 +37,16 @@
                 %a.nav-link{href: "#"}
                   %i.fas.fa-user-cog アカウント設定
               %li.nav-item
-                = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+                = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link nav-link-without-icon'
             - else
               %li.nav-item
-                = link_to 'ログイン', new_user_session_path, class: 'nav-link'
+                = link_to 'ログイン', new_user_session_path, class: 'nav-link nav-link-without-icon'
               %li.nav-item
-                = link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link'
-    .row.main-part-container.d-flex.p-2.vh-100.mt-5
-      .col-xl-2.side_nav.border-right.d-none.d-xl-block.h-100.position-fixed.mt-3
+                = link_to 'ユーザー登録', new_user_registration_path, class: 'nav-link nav-link-without-icon'
+
+    -# pcサイズ サイドメニュー
+    .row.main-part-container
+      .col-xl-2.side_nav.border-right.d-none.d-xl-block.h-100
         %ul.nav.flex-column.d-none.d-xl-block
           %li.nav-item.mt-3
             = link_to root_path, class: 'text-secondary nav-link' do
@@ -54,25 +62,28 @@
               %a.text-secondary.nav-link{:href => "#"}
                 %i.fas.fa-user-cog アカウント設定
             %li.nav-item.mt-3
-              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-secondary nav-link'
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-secondary nav-link nav-link-without-icon'
           - else
             %li.nav-item.mt-3
-              = link_to 'ログイン', new_user_session_path, class: 'text-secondary nav-link'
+              = link_to 'ログイン', new_user_session_path, class: 'text-secondary nav-link nav-link-without-icon'
             %li.nav-item.mt-3
-              = link_to 'ユーザー登録', new_user_registration_path, class: 'text-secondary nav-link'
+              = link_to 'ユーザー登録', new_user_registration_path, class: 'text-secondary nav-link nav-link-without-icon'
+
       = yield
-      %nav.navbar.navbar-expand.d-xl-none.fixed-bottom.navbar-light{style: "background-color: #e3f2fd;"}
-        %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", type: "button"}
-          %span.navbar-toggler-icon
-        #navbarNav.collapse.navbar-collapse
-          %ul.navbar-nav
+
+    -# iPad以降 フッター
+    %nav.navbar.navbar-expand.d-xl-none.fixed-bottom.navbar-light{style: "background-color: #e3f2fd;"}
+      %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", type: "button"}
+        %span.navbar-toggler-icon
+      #navbarNav.collapse.navbar-collapse
+        %ul.navbar-nav
+          %li.nav-item.mx-4
+            = link_to root_path, class: 'nav-link' do
+              %i.fas.fa-home
+          - if user_signed_in?
             %li.nav-item.mx-4
-              = link_to root_path, class: 'nav-link' do
-                %i.fas.fa-home
-            - if user_signed_in?
-              %li.nav-item.mx-4
-                = link_to user_path(current_user), class: 'nav-link' do
-                  %i.fas.fa-user
-              %li.nav-item.mx-4
-                = link_to new_report_path, class: 'nav-link' do
-                  %i.fa.fa-edit
+              = link_to user_path(current_user), class: 'nav-link' do
+                %i.fas.fa-user
+            %li.nav-item.mx-4
+              = link_to new_report_path, class: 'nav-link' do
+                %i.fa.fa-edit
