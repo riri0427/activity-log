@@ -1,8 +1,11 @@
-.col-xl-9.d-none.d-xl-block.reports-xl.pt-3.pl-3{style: "margin-left: 250px;"}
+-# pc
+.col-xl-10.d-none.d-xl-block.reports-xl
   .container
     .row
       = render @reports
-.col-xl-9.d-xl-none.reports-xl.pt-3.pl-3{style: "height: calc(100vh - 18%); overflow: scroll;"}
+
+-# iPad以下
+.d-xl-none.reports-under-lg
   .container
     .row
       = render @reports

@@ -1,22 +1,27 @@
-.col-xl-6.card{style: "width: 100%;"}
+.col-xl-6.card.index-report-card
   - if report.images.present?
-    .card.mb-3{:style => "max-width: 540px;"}
-      .row.no-gutters
-        .col-md-4
-          = image_tag report.images[0], class:'card-img', alt: 'image'
-        .col-md-8
-          .card-body
-            = link_to user_path(report.user.id) do
-              %h5.card-title
-                = report.user.nickname
-            %h6.card-title
-              = report.title
-            = link_to '詳細', report_path(report), class: 'btn btn-info'
+    .row.no-gutters
+      .col-md-4.card-body
+        = image_tag report.images[0], class:'card-img', alt: 'image'
+      .col-md-8
+        .card-body
+          = link_to user_path(report.user.id) do
+            %h5.card-title.index-report-nickname
+              = report.user.nickname
+          %h6.card-title.index-report-title
+            = report.title
+          %p.card-text
+            %small.text-muted
+              = "アクティビティ：#{report.activity.name}" if report.activity.present?
+          = link_to '詳細', report_path(report), class: 'btn btn-info'
   - else
     .card-body
       = link_to user_path(report.user.id) do
-        %h5.card-title
+        %h5.card-title.index-report-nickname
           = report.user.nickname
-      %h6.card-title 
+      %h6.card-title.index-report-title
         = report.title
+      %p.card-text
+        %small.text-muted
+          = "アクティビティ：#{report.activity.name}" if report.activity.present?
       = link_to '詳細', report_path(report), class: 'btn btn-info'

@@ -1,52 +1,28 @@
-.container.d-none.d-xl-block{style: 'margin-left: 400px; max-width: 800px;'}
-  = form_with(model: @report, url: '/reports', class: 'mt-3', local: true) do |f|
-    .form-group
-      = f.label 'タイトル', for: 'exampleFormControlInput1'
-      = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル'
-    .form-group
-      作業時間(半角で入力してください)
-      .form-row
-        .col.d-flex
-          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間', value: '0'
-          .form-name.mt-2.ml-1
-            時間
-        .col.d-flex
-          = f.number_field :spend_minute, class: 'form-control', placeholder: '分'
-          .form-name.mt-2.ml-1
-            分
-    .form-group
-      画像（複数選択可）
-      .custom-file
-        = f.file_field :images, id: 'customFile', class: 'custom-file-input', multiple: true
-        = f.label 'ファイルを選んでください', for: 'customFile', class: 'custom-file-label'
-    .form-group
-      = f.label 'コメント', for: 'exampleFormControlTextarea1'
-      = f.text_area :comment, id: 'exampleFormControlTextarea1', class: 'form-control', rows: '3'
-    .form-group
-      = f.button :Send, class: 'btn btn-info'
-.container.d-xl-none
-  = form_with(model: @report, url: '/reports', class: 'mt-3', local: true) do |f|
-    .form-group
-      = f.label 'タイトル', for: 'exampleFormControlInput1'
-      = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル'
-    .form-group
-      作業時間(半角で入力してください)
-      .form-row
-        .col.d-flex
-          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間', value: '0'
-          .form-name.mt-2.ml-1
-            時間
-        .col.d-flex
-          = f.number_field :spend_minute, class: 'form-control', placeholder: '分'
-          .form-name.mt-2.ml-1
-            分
-    .form-group
-      画像（複数選択可）
-      .custom-file
-        = f.file_field :images, id: 'customFile', class: 'custom-file-input', multiple: true
-        = f.label 'ファイルを選んでください', for: 'customFile', class: 'custom-file-label'
-    .form-group
-      = f.label 'コメント', for: 'exampleFormControlTextarea1'
-      = f.text_area :comment, id: 'exampleFormControlTextarea1', class: 'form-control', rows: '3'
-    .form-group
-      = f.button :Send, class: 'btn btn-info'
+= form_with(model: @report, url: '/reports', class: 'mt-3', local: true) do |f|
+  .form-group
+    = f.label '活動名'
+    = f.collection_select :activity_id, @activities, :id, :name, {}, { class: 'custom-select' }
+  .form-group
+    = f.label 'タイトル', for: 'exampleFormControlInput1'
+    = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル'
+  .form-group
+    作業時間(半角で入力してください)
+    .form-row
+      .col.d-flex
+        = f.number_field :spend_hour, class: 'form-control', placeholder: '時間', value: '0'
+        .form-name.mt-2.ml-1
+          時間
+      .col.d-flex
+        = f.number_field :spend_minute, class: 'form-control', placeholder: '分', value: '0'
+        .form-name.mt-2.ml-1
+          分
+  .form-group
+    画像（複数選択可）
+    .custom-file
+      = f.file_field :images, id: 'customFile', class: 'custom-file-input', multiple: true
+      = f.label 'ファイルを選んでください', for: 'customFile', class: 'custom-file-label'
+  .form-group
+    = f.label 'コメント', for: 'exampleFormControlTextarea1'
+    = f.text_area :comment, id: 'exampleFormControlTextarea1', class: 'form-control', rows: '3'
+  .form-group
+    = f.button :Send, class: 'btn btn-info'

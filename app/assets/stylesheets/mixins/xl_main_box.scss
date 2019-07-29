@@ -1,0 +1,6 @@
+@mixin xl_main_box($horizontal_padding) {
+  height: calc(100vh - 10%);
+  width: 100%;
+  padding: 20px $horizontal_padding 40px;
+  overflow: scroll;
+}

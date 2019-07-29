@@ -1,0 +1,15 @@
+// pcサイズ
+.report-form {
+  @include xl_main_box(200px);
+  &__title {
+    margin-bottom: 30px;
+  }
+}
+
+// iPad以下
+.report-form-under-lg {
+  @include under_lg();
+  .report-form-title {
+    margin-bottom: 30px;
+  }
+}

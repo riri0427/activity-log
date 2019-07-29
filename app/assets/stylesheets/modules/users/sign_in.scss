@@ -1,0 +1,9 @@
+// pcサイズ
+.sign-in-form {
+  @include xl_main_box(200px);
+}
+
+// iPad以下
+.sign-in-form-under-lg {
+  @include under_lg();
+}

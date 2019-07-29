@@ -1,0 +1,24 @@
+.main-part-container {
+  height: calc(100vh - 10%);
+  width: 100vw;
+
+  // pc
+  .reports-xl {
+    // 引数は左右のpadding
+    @include xl_main_box(50px);
+    .index-report-card {
+      width: 100%;
+      .index-report-nickname {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      }
+      .index-report-title {
+        margin: 0;
+      }
+    }
+  }
+
+  // iPad以下
+  .reports-under-lg {
+    @include under_lg();
+  }
+}

@@ -1,1 +1,9 @@
-= render partial: 'form'
+-# pcサイズ
+.col-xl-10.d-none.d-xl-block.report-form
+  %h3.report-form__title 新規レポート
+  = render partial: 'form'
+
+-# iPad以下
+.container.d-xl-none.report-form-under-lg
+  %h3.report-form-title 新規レポート
+  = render partial: 'form'

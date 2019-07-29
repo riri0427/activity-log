@@ -8,6 +8,7 @@ class ReportsController < ApplicationController
   end
 
   def new
+    @activities = current_user.activities
   end
 
   def create
@@ -17,6 +18,7 @@ class ReportsController < ApplicationController
 
   def edit
     @report = Report.find(params[:id])
+    @activities = current_user.activities
   end
 
   def update
@@ -30,7 +32,7 @@ class ReportsController < ApplicationController
   private
   
   def report_params_create
-    params.permit(:title, :spend_hour, :spend_minute, :comment, { :images => [] }).merge(user_id: current_user.id)
+    params.permit(:title, :spend_hour, :spend_minute, :comment, { :images => [] }, :activity_id).merge(user_id: current_user.id)
   end
 
   def report_params_update

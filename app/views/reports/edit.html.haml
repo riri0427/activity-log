@@ -1,46 +1,9 @@
-.container.d-none.d-xl-block{style: 'margin-left: 400px; max-width: 800px;'}
-  %h3.mt-4 編集
-  = form_with(model: @report, url: "/reports/#{@report.id}", class: 'mt-3', local: true) do |f|
-    .form-group
-      = f.label 'タイトル', for: 'exampleFormControlInput1'
-      = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル', value: "#{}"
-    .form-group
-      作業時間
-      .form-row
-        .col
-          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間', value: "#{}"
-        .col
-          = f.number_field :spend_minute, class: 'form-control', placeholder: '分', value: "#{}"
-    .form-group
-      画像（複数選択可）
-      .custom-file
-        = f.file_field :images, id: 'customFile', class: 'custom-file-input', multiple: true
-        = f.label 'ファイルを選んでください', for: 'customFile', class: 'custom-file-label'
-    .form-group
-      = f.label 'コメント', for: 'exampleFormControlTextarea1'
-      = f.text_area :comment, id: 'exampleFormControlTextarea1', class: 'form-control', rows: '3', value: "#{}"
-    .form-group
-      = f.button :Send, class: 'btn btn-info'
-.container.d-xl-none{style: "height: calc(100vh - 18%); overflow: scroll;"}
-  %h3.mt-4 編集
-  = form_with(model: @report, url: "/reports/#{@report.id}", class: 'mt-3', local: true) do |f|
-    .form-group
-      = f.label 'タイトル', for: 'exampleFormControlInput1'
-      = f.text_field :title, id: 'exampleFormControlInput1', class: 'form-control', placeholder: 'タイトル', value: "#{}"
-    .form-group
-      作業時間
-      .form-row
-        .col
-          = f.number_field :spend_hour, class: 'form-control', placeholder: '時間', value: "#{}"
-        .col
-          = f.number_field :spend_minute, class: 'form-control', placeholder: '分', value: "#{}"
-    .form-group
-      画像（複数選択可）
-      .custom-file
-        = f.file_field :images, id: 'customFile', class: 'custom-file-input', multiple: true
-        = f.label 'ファイルを選んでください', for: 'customFile', class: 'custom-file-label'
-    .form-group
-      = f.label 'コメント', for: 'exampleFormControlTextarea1'
-      = f.text_area :comment, id: 'exampleFormControlTextarea1', class: 'form-control', rows: '3', value: "#{}"
-    .form-group
-      = f.button :Send, class: 'btn btn-info'
+-# pcサイズ
+.col-xl-10.d-none.d-xl-block.report-form
+  %h3.report-form__title 編集
+  = render partial: 'form'
+
+-# iPad以下
+.container.d-xl-none.report-form-under-lg
+  %h3.report-form-title 編集
+  = render partial: 'form'

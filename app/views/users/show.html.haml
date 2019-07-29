@@ -1,4 +1,13 @@
-.col-xl-9.d-none.d-xl-block.reports-xl.pt-3.pl-3{style: "margin-left: 250px;"}
+-# pcサイズ
+.col-xl-10.d-none.d-xl-block.reports-xl
+  = render partial: 'user-header', locals: { nickname: @nickname }
+  - if @activities.present?
+    .list-group
+      = link_to '#', class: 'list-group-item list-group-item-action' do
+        .d-flex.w-100.justify-content-between.align-items-center
+          %h5.mb-1= @activities.first.name
+          %small 合計作業時間：3時間0分
+
   .container
     .container.d-flex.justify-content-between
       %h3.mt-2.mb-3= "#{@nickname}さんのページ"
@@ -7,9 +16,9 @@
       - @reports.each do |report|
         .col-xl-6.card{style: "width: 100%;"}
           - if report.images.present?
-            .card.mb-3{:style => "max-width: 540px;"}
+            .card.mb-3.mypage-card-with-image
               .row.no-gutters
-                .col-md-4
+                .col-md-4.card-body
                   = image_tag report.images[0], class:'card-img', alt: 'image'
                 .col-md-8
                   .card-body
@@ -29,7 +38,9 @@
               = link_to '詳細', report_path(report), class: 'btn btn-info'
               - if user_signed_in? && current_user.id == report.user.id
                 = link_to '編集', edit_report_path(report), class: 'btn btn-info'
-.col-xl-9.d-xl-none.reports-xl.pt-3.pl-3{style: "height: calc(100vh - 18%); overflow: scroll;"}
+
+-# iPad以下
+.d-xl-none.reports-under-lg
   .contaner.ml-md-3.d-lg-flex.justify-content-between
     %h3.mt-2.mb-3= "#{@nickname}さんのページ"
     %p.mt-2.mb-2= "合計作業時間：#{return_result_spend_hour(@reports)}時間#{return_result_spend_minute(@reports)}分"
