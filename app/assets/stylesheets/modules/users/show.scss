@@ -1,4 +1,24 @@
-.mypage-card-with-image {
-  max-width: 540px;
-  border: none;
+.mypage-nickname-link {
+  color: black;
+}
+
+.show-user-activities {
+  margin-top: 50px;
+}
+
+.activity-name-on-pc {
+  max-width: 80%;
+  h5 {
+    word-wrap: break-word;
+  }
+}
+
+// iPad以下
+.show-mypage-under-lg {
+  @include under_lg();
+  .activity-name-under-lg {
+    h5 {
+      word-wrap: break-word;
+    }
+  }
 }
