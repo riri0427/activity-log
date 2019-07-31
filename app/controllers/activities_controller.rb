@@ -11,6 +11,12 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:user_id])
+    @activity = Activity.find(params[:id])
+    @reports = @activity.reports
+  end
+
   private
 
   def activity_params
