@@ -1,0 +1,47 @@
+// pc-iPadサイズ
+.show-activity-xl-md {
+  @include xl_main_box(50px);
+  &--under-lg {
+    margin-top: 80px;
+  }
+  .show-activity-header-box {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 0;
+  
+    // pc サイズ
+    .show-activity-name {
+      width: 50%;
+      h6 {
+        word-wrap: break-word;
+      }
+    }
+  
+    // iPadサイズ
+    .show-activity-name-under-lg {
+      max-width: 30%;
+      h6 {
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+// スマホサイズ
+.show-activity-xs {
+  @include under_lg();
+  .show-activity-header-box-xs {
+    list-style: none;
+    margin-top: 50px;
+    .show-activity-name-xs {
+      max-width: 80vw;
+      margin-bottom: 20px;
+      h6 {
+        word-wrap: break-word;
+      }
+    }
+  }
+}

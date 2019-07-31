@@ -1,0 +1,38 @@
+-# pcサイズ
+.col-xl-10.d-none.d-xl-block.show-activity-xl-md
+  = render partial: 'users/user-header', locals: { nickname: @user.nickname }
+  %ul.show-activity-header-box
+    %li.show-activity-name
+      %h6= "アクティビティ：#{@activity.name}"
+    %li.show-activity-spend-time
+      %h6= "合計作業時間：#{return_result_spend_hour(@activity.reports)}時間#{return_result_spend_minute(@activity.reports)}分"
+  .container
+    .row
+      = render @reports
+
+-# iPadサイズ
+.d-xl-none.d-none.d-md-block.show-activity-xl-md.show-activity-xl-md--under-lg
+  .contaner.ml-md-3
+    = render partial: 'users/user-header', locals: { nickname: @user.nickname }
+    .d-none.d-md-block
+      %ul.show-activity-header-box
+        %li.show-activity-name-under-lg
+          %h6= "アクティビティ：#{@activity.name}"
+        %li.show-activity-spend-time
+          %h6= "合計作業時間：#{return_result_spend_hour(@activity.reports)}時間#{return_result_spend_minute(@activity.reports)}分"
+    .container
+      .row
+        = render @reports
+
+-# スマホサイズ
+.d-block.d-sm-none.show-activity-xs
+  .contaner.ml-md-3
+    = render partial: 'users/user-header', locals: { nickname: @user.nickname }
+    %ul.show-activity-header-box-xs.d-block.d-sm-none
+      %li.show-activity-name-xs
+        %h6= "アクティビティ：#{@activity.name}"
+      %li.show-activity-spend-time
+        %h6= "合計作業時間：#{return_result_spend_hour(@activity.reports)}時間#{return_result_spend_minute(@activity.reports)}分"
+    .container
+      .row
+        = render @reports
