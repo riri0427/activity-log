@@ -10,10 +10,14 @@
               = report.user.nickname
           %h6.card-title.index-report-title
             = report.title
-          %p.card-text
-            %small.text-muted
-              = "アクティビティ：#{report.activity.name}" if report.activity.present?
-          = link_to '詳細', report_path(report), class: 'btn btn-info'
+          - unless request.path.include?("activities")
+            - if report.activity.present?
+              %p.card-text.index-activity-name
+                %small.text-muted
+                  = "アクティビティ：#{report.activity.name}"
+          = link_to '詳細', report_path(report), class: 'btn btn-info show-report-btn'
+          - if user_signed_in? && current_user.id == report.user.id
+            = link_to '編集', edit_report_path(report), class: 'btn btn-info show-report-btn'
   - else
     .card-body
       = link_to user_path(report.user.id) do
@@ -21,7 +25,11 @@
           = report.user.nickname
       %h6.card-title.index-report-title
         = report.title
-      %p.card-text
-        %small.text-muted
-          = "アクティビティ：#{report.activity.name}" if report.activity.present?
-      = link_to '詳細', report_path(report), class: 'btn btn-info'
+      - unless request.path.include?("activities")
+        - if report.activity.present?
+          %p.card-text.index-activity-name
+            %small.text-muted
+              = "アクティビティ：#{report.activity.name}"
+      = link_to '詳細', report_path(report), class: 'btn btn-info show-report-btn'
+      - if user_signed_in? && current_user.id == report.user.id
+        = link_to '編集', edit_report_path(report), class: 'btn btn-info show-report-btn'
