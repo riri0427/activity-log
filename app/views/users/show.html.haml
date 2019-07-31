@@ -1,73 +1,25 @@
 -# pcサイズ
 .col-xl-10.d-none.d-xl-block.reports-xl
   = render partial: 'user-header', locals: { nickname: @nickname }
+  %h5.show-user-activities アクティビティ一覧
   - if @activities.present?
-    .list-group
-      = link_to '#', class: 'list-group-item list-group-item-action' do
-        .d-flex.w-100.justify-content-between.align-items-center
-          %h5.mb-1= @activities.first.name
-          %small 合計作業時間：3時間0分
-
-  .container
-    .container.d-flex.justify-content-between
-      %h3.mt-2.mb-3= "#{@nickname}さんのページ"
-      %p.mt-2.mb-2= "合計作業時間：#{return_result_spend_hour(@reports)}時間#{return_result_spend_minute(@reports)}分"
-    .row
-      - @reports.each do |report|
-        .col-xl-6.card{style: "width: 100%;"}
-          - if report.images.present?
-            .card.mb-3.mypage-card-with-image
-              .row.no-gutters
-                .col-md-4.card-body
-                  = image_tag report.images[0], class:'card-img', alt: 'image'
-                .col-md-8
-                  .card-body
-                    %h5.card-title
-                      = report.title
-                    %h6.card-title
-                      = "作業時間：#{report.spend_hour}時間#{report.spend_minute}分"
-                    = link_to '詳細', report_path(report), class: 'btn btn-info'
-                    - if user_signed_in? && current_user.id == report.user.id
-                      = link_to '編集', edit_report_path(report), class: 'btn btn-info'
-          - else
-            .card-body
-              %h5.card-title 
-                = report.title
-              %h6.card-title
-                = "作業時間：#{report.spend_hour}時間#{report.spend_minute}分"
-              = link_to '詳細', report_path(report), class: 'btn btn-info'
-              - if user_signed_in? && current_user.id == report.user.id
-                = link_to '編集', edit_report_path(report), class: 'btn btn-info'
+    - @activities.each do |activity|
+      .list-group
+        = link_to user_activity_path(@user, activity), class: 'list-group-item list-group-item-action' do
+          .d-flex.w-100.justify-content-between.align-items-center
+            .activity-name-on-pc
+              %h5.mb-1= activity.name
+            %small= "合計作業時間：#{return_result_spend_hour(activity.reports)}時間#{return_result_spend_minute(activity.reports)}分"
 
 -# iPad以下
-.d-xl-none.reports-under-lg
-  .contaner.ml-md-3.d-lg-flex.justify-content-between
-    %h3.mt-2.mb-3= "#{@nickname}さんのページ"
-    %p.mt-2.mb-2= "合計作業時間：#{return_result_spend_hour(@reports)}時間#{return_result_spend_minute(@reports)}分"
-  .container
-    .row
-      - @reports.each do |report|
-        .col-xl-6.card{style: "width: 100%;"}
-          - if report.images.present?
-            .card.mb-3{:style => "max-width: 540px;"}
-              .row.no-gutters
-                .col-md-4
-                  = image_tag report.images[0], class:'card-img', alt: 'image'
-                .col-md-8
-                  .card-body
-                    %h5.card-title
-                      = report.title
-                    %h6.card-title
-                      = "作業時間：#{report.spend_hour}時間#{report.spend_minute}分"
-                    = link_to '詳細', report_path(report), class: 'btn btn-info'
-                    - if user_signed_in? && current_user.id == report.user.id
-                      = link_to '編集', edit_report_path(report), class: 'btn btn-info'
-          - else
-            .card-body
-              %h5.card-title 
-                = report.title
-              %h6.card-title
-                = "作業時間：#{report.spend_hour}時間#{report.spend_minute}分"
-              = link_to '詳細', report_path(report), class: 'btn btn-info'
-              - if user_signed_in? && current_user.id == report.user.id
-                = link_to '編集', edit_report_path(report), class: 'btn btn-info'
+.container.d-xl-none.show-mypage-under-lg
+  = render partial: 'user-header', locals: { nickname: @nickname }
+  %h5.show-user-activities アクティビティ一覧
+  - if @activities.present?
+    - @activities.each do |activity|
+      .list-group.activity-list-under-lg
+        = link_to user_activity_path(@user, activity), class: 'list-group-item list-group-item-action' do
+          .justify-content-between.align-items-center
+            .activity-name-under-lg
+              %h5.mb-1= activity.name
+            %small= "合計作業時間：#{return_result_spend_hour(activity.reports)}時間#{return_result_spend_minute(activity.reports)}分"

@@ -1,1 +1,3 @@
-%h3.mt-2.mb-3= "#{nickname}さんのページ"
+%h3.mt-2.mb-3
+  = link_to user_path(@user), class: 'mypage-nickname-link' do
+    = "#{nickname}さんのページ"
