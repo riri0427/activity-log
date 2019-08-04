@@ -70,6 +70,7 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.8.1'
 gem 'mini_magick'
 gem 'devise'
+gem "aws-sdk-s3", require: false
 
 group :production do
   gem 'pg'
