@@ -14,9 +14,18 @@
   }
 }
 
-// iPad以下
+// iPad
 .show-report-under-lg {
-  @include under_lg();
+  height: calc(100vh - 10%);
+  width: 100%;
+  padding: 20px 80px 40px;
+  margin: 70px 0 0;
+  .show-report-card-under-lg {
+    margin-bottom: 90px;
+  }
+  &__border {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.125);
+  }
 
   // iPad 画像
   .show-image-box-md {
@@ -28,8 +37,11 @@
       margin: 20px 0;
     }
   }
+}
 
-  // スマホ 画像
+// スマホ
+.show-report-xs {
+  @include under_lg();
   .show-xs-image {
     display: block;
     margin-bottom: 10px;
