@@ -8,6 +8,9 @@
     @include xl_main_box(50px);
     .index-report-card {
       width: 100%;
+      &__contents {
+        height: 100%;
+      }
       .index-report-nickname {
         border-bottom: 1px solid rgba(0, 0, 0, 0.125);
       }
