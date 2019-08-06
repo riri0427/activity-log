@@ -6,25 +6,6 @@
   .reports-xl {
     // 引数は左右のpadding
     @include xl_main_box(50px);
-    .index-report-card {
-      width: 100%;
-      &__contents {
-        height: 100%;
-      }
-      .index-report-nickname {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-      }
-      .index-report-title {
-        margin: 0;
-      }
-      .index-activity-name {
-        margin-bottom: 0;
-      }
-      .show-report-btn {
-        display: inline-block;
-        margin-top: 10px;
-      }
-    }
   }
 
   // iPad以下

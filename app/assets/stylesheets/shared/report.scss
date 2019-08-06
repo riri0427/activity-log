@@ -1,0 +1,26 @@
+.index-report-card {
+  width: 100%;
+
+  // 画像あり
+  &__contents {
+    height: 100%;
+  }
+  .index-report-nickname {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  }
+  .index-report-title {
+    margin: 0;
+  }
+  .index-activity-name {
+    margin-bottom: 0;
+  }
+  .show-report-btn {
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  // 画像なし
+  .report-card-flex-item {
+    width: 100%;
+  }
+}

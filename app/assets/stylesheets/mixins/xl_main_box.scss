@@ -1,4 +1,4 @@
-@mixin xl_main_box($horizontal_padding) {
+@mixin xl_main_box($horizontal_padding: 200px) {
   height: calc(100vh - 10%);
   width: 100%;
   padding: 20px $horizontal_padding 40px;
