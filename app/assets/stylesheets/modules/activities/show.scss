@@ -1,9 +1,6 @@
-// pc-iPadサイズ
+// pcサイズ
 .show-activity-xl-md {
   @include xl_main_box(50px);
-  &--under-lg {
-    margin-top: 80px;
-  }
   .show-activity-header-box {
     width: 100%;
     display: flex;
@@ -11,18 +8,27 @@
     justify-content: space-between;
     margin-top: 50px;
     margin-bottom: 0;
-  
-    // pc サイズ
     .show-activity-name {
       width: 50%;
       h6 {
         word-wrap: break-word;
       }
     }
-  
-    // iPadサイズ
+  }
+}
+
+// iPadサイズ
+.show-activity-under-lg {
+  @include under_lg();
+  .show-activity-header-box {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 0;
     .show-activity-name-under-lg {
-      max-width: 30%;
+      max-width: 35%;
       h6 {
         word-wrap: break-word;
       }

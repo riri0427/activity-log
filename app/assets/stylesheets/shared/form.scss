@@ -1,6 +1,6 @@
 // pcサイズ
 .report-form {
-  @include xl_main_box(200px);
+  @include xl_main_box();
   &__title {
     margin-bottom: 30px;
   }

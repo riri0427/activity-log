@@ -25,23 +25,24 @@
           - if user_signed_in? && current_user.id == report.user.id
             = link_to '編集', edit_report_path(report), class: 'btn btn-info show-report-btn'
   - else
-    .card-body
+    .card-body.d-flex.align-items-center
+      .report-card-flex-item
 
-      -# activitiesのshowページの場合
-      - if request.path.include?('activities')
-        %h5.card-title.index-report-title
-          = report.title
-      - else # activitiesのshowページ以外の場合
-        = link_to user_path(report.user.id) do
-          %h5.card-title.index-report-nickname
-            = report.user.nickname
-        %h6.card-title.index-report-title
-          = report.title
-        - if report.activity.present?
-          %p.card-text.index-activity-name
-            %small.text-muted
-              = "アクティビティ：#{report.activity.name}"
+        -# activitiesのshowページの場合
+        - if request.path.include?('activities')
+          %h5.card-title.index-report-title
+            = report.title
+        - else # activitiesのshowページ以外の場合
+          = link_to user_path(report.user.id) do
+            %h5.card-title.index-report-nickname
+              = report.user.nickname
+          %h6.card-title.index-report-title
+            = report.title
+          - if report.activity.present?
+            %p.card-text.index-activity-name
+              %small.text-muted
+                = "アクティビティ：#{report.activity.name}"
 
-      = link_to '詳細', report_path(report), class: 'btn btn-info show-report-btn'
-      - if user_signed_in? && current_user.id == report.user.id
-        = link_to '編集', edit_report_path(report), class: 'btn btn-info show-report-btn'
+        = link_to '詳細', report_path(report), class: 'btn btn-info show-report-btn'
+        - if user_signed_in? && current_user.id == report.user.id
+          = link_to '編集', edit_report_path(report), class: 'btn btn-info show-report-btn'

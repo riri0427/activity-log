@@ -17,12 +17,12 @@
         %button.btn.btn-info{type: "button"} 削除
 
 -# iPad
-.d-xl-none.d-none.d-md-block.show-report-under-lg
+.container.d-xl-none.show-report-under-lg
   .card.show-report-card-under-lg
     .card-body
       %h5.card-title.show-report-under-lg__border= @report.title
       %p.card-text
-        %small 作業時間
+        %small 作業時間：
       %p.card-text.show-report-under-lg__border= "#{@report.spend_hour}時間#{@report.spend_minute}分"
 
     -# iPad Pro 画像
@@ -39,20 +39,7 @@
           - @report.images.each do |image|
             = image_tag image.variant(resize: '120x200^', auto_orient: true, strip: true), class: 'show-image-box-md__image', alt: 'image'
 
-    .card-body
-      = simple_format @report.comment, class: 'card-text'
-      - if user_signed_in? && current_user.id == @report.user.id
-        = link_to '編集', edit_report_path(@report), class: 'btn btn-info'
-        %button.btn.btn-info{type: "button"} 削除
-
--# スマホ以下
-.d-sm-none.show-report-xs
-  .card.show-report-card
-    .card-body
-      %h5.card-title= @report.title
-      %p.card-text
-        %small 作業時間
-      %p.card-text= "#{@report.spend_hour}時間#{@report.spend_minute}分"
+    -# スマホ画像
     .show-image-box-xs.d-block.d-sm-none
       - if @report.images.present?
         - @report.images.each do |image|
