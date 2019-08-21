@@ -37,9 +37,6 @@
                 = link_to user_path(current_user), class: 'nav-link' do
                   %i.fas.fa-user マイページ
               %li.nav-item
-                %a.nav-link{href: "#"}
-                  %i.fas.fa-user-cog アカウント設定
-              %li.nav-item
                 = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link nav-link-without-icon'
             - else
               %li.nav-item
@@ -64,9 +61,6 @@
             %li.nav-item.mt-3
               = link_to user_path(current_user), class: 'text-secondary nav-link' do
                 %i.fas.fa-user マイページ
-            %li.nav-item.mt-3
-              %a.text-secondary.nav-link{:href => "#"}
-                %i.fas.fa-user-cog アカウント設定
             %li.nav-item.mt-3
               = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'text-secondary nav-link nav-link-without-icon'
           - else
