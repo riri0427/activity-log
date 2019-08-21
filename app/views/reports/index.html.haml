@@ -3,9 +3,11 @@
   .container
     .row
       = render @reports
+    = paginate @reports
 
 -# iPad以下
 .d-xl-none.reports-under-lg
   .container
     .row
       = render @reports
+      = paginate @reports
