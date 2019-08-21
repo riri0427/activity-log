@@ -71,6 +71,7 @@ gem 'font-awesome-sass', '~> 5.8.1'
 gem 'mini_magick'
 gem 'devise'
 gem "aws-sdk-s3", require: false
+gem 'kaminari', '~> 0.17.0'
 
 group :production do
   gem 'pg'
