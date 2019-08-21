@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @activity = Activity.find(params[:id])
-    @reports = @activity.reports
+    @reports = @activity.reports.order("created_at DESC").page(params[:page]).per(10)
   end
 
   private

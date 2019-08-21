@@ -9,6 +9,7 @@
   .container
     .row
       = render @reports
+    = paginate @reports
 
 -# iPadサイズ
 .container.d-xl-none.d-none.d-md-block.show-activity-under-lg
@@ -23,6 +24,7 @@
     .container
       .row
         = render @reports
+      = paginate @reports
 
 -# スマホサイズ
 .d-block.d-sm-none.show-activity-xs
@@ -36,3 +38,4 @@
     .container
       .row
         = render @reports
+      = paginate @reports
