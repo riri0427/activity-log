@@ -70,20 +70,3 @@
               = link_to 'ユーザー登録', new_user_registration_path, class: 'text-secondary nav-link nav-link-without-icon'
 
       = yield
-
-    -# iPad以降 フッター
-    %nav.navbar.navbar-expand.d-xl-none.fixed-bottom.navbar-light{style: "background-color: #e3f2fd;"}
-      %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", type: "button"}
-        %span.navbar-toggler-icon
-      #navbarNav.collapse.navbar-collapse
-        %ul.navbar-nav
-          %li.nav-item.mx-4
-            = link_to root_path, class: 'nav-link' do
-              %i.fas.fa-home
-          - if user_signed_in?
-            %li.nav-item.mx-4
-              = link_to user_path(current_user), class: 'nav-link' do
-                %i.fas.fa-user
-            %li.nav-item.mx-4
-              = link_to new_report_path, class: 'nav-link' do
-                %i.fa.fa-edit
